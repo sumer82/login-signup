@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+   <div class="page">
+       <div class="form-container">
+           <div class="btn-box">
+               <div id="button"></div>
+               <button class="toggle-btn" onclick="login()">Log in</button>
+               <button class="toggle-btn" onclick="register()">Register</button>
+           </div>
+          <!-- <div class="profile-links">
+            <a href="" id="insta"><i class="fab fa-instagram"></i></a>
+            <a href="" id="facebook"><i class="fab fa-facebook-square"></i></a>
+            <a href="" id="whatsapp"><i class="fab fa-google"></i></a>
+            <a href="" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
+          </div>  -->
+          <form action="/login" method="post"  id="login" class="input">
+                <input name="username" type="text" class="input-feild" placeholder="username" required>
+                <input name="password" type="text" class="input-feild" placeholder="enter password" required>
+                <button type="submit" id="login-btn" class="btn-submit">Log in</button>
+                <% if(locals.error){%>
+                    <h4 id="msg"><%= locals.error%> </h4>
+                <%}
+                else{%> 
+                    <h4 id="msg"><%=locals.message%></h4>
+                <%}%>
+          </form>
+          <form action="/register" method="post" id="register" class="input">
+                <input name="name" type="text" class="input-feild" placeholder="name" required>
+                <input name="email" type="text" class="input-feild" placeholder="Email id" required>
+                <input name="username" type="text" class="input-feild" placeholder="username" required>
+                <input name="password" type="text" class="input-feild" placeholder="enter password" required>
+                <input type="checkbox" class="check" required><span>I agree to the <b>terms & conditions</b></span>
+                <button type="submit" class="btn-submit" >Register</button>
+          </form>
+       </div>
+   </div>
+   <script>
+          var x = document.getElementById("login");
+          var y = document.getElementById("register");
+          var z = document.getElementById("button");
+          
+       function register(){
+           x.style.left="-400px";
+           y.style.left="50px";
+           z.style.left="110px";
+       }
+       function login(){
+           x.style.left="50px";
+           y.style.left="450px";
+           z.style.left="0px";
+       }
+    </script>
+</body>
+</html>
